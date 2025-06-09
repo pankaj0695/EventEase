@@ -2,6 +2,8 @@
 
 EventEase is a modern, visually appealing event management web app built with React and Vite. Effortlessly discover, create, and manage events with a beautiful UI, smooth navigation, and secure authentication.
 
+![Home Page](./src/assets/homepage.png)
+
 ## Features
 
 - **Home Page:** Eye-catching background, animated title/description, and quick access to explore or add events.
@@ -11,10 +13,6 @@ EventEase is a modern, visually appealing event management web app built with Re
 - **Authentication:** Secure sign up, login, and Google sign-in via Firebase Auth.
 - **User Experience:** Animated buttons, overlays, and consistent color scheme for a delightful experience.
 - **Responsive Design:** Fully responsive for desktop and mobile devices.
-
-## Screenshots
-
-![Home Page](./src/assets/homepage.png)
 
 ## Getting Started
 

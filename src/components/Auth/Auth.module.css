@@ -1,0 +1,157 @@
+:root {
+  --bg-main: #3aafa9;
+  --ui-dark: #2b7a78;
+  --text-dark: #17252a;
+  --text-light: #feffff;
+  --accent: #2b7a78;
+  --accent-bright: #3aafa9;
+  --bg-contrast: #def2f1;
+}
+
+.authBg {
+  min-height: 100vh;
+  width: 100vw;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authContainer {
+  width: 100vw;
+  max-width: 420px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 44px 32px 32px 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #222;
+}
+
+.authLogoBlock {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.authLogo {
+  width: 56px;
+  height: 56px;
+  margin-right: 8px;
+}
+
+.authTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff3c6f;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+}
+
+.authSubtitle {
+  font-size: 1.15rem;
+  color: #ff8c42;
+  margin-bottom: 22px;
+  font-weight: 500;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.inputField {
+  padding: 14px 16px;
+  border: 1.5px solid #ff3c6f;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fafbfc;
+  color: #222;
+  transition: border 0.2s;
+  font-family: inherit;
+}
+
+.inputField:focus {
+  border-color: #ff8c42;
+  outline: none;
+}
+
+.submitBtn {
+  background: linear-gradient(90deg, #ff8c42 0%, #ff3c6f 100%);
+  color: #fff;
+  padding: 13px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(255, 60, 111, 0.1);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: linear-gradient(90deg, #ff3c6f 0%, #ff8c42 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(255, 60, 111, 0.13);
+}
+
+.googleBtn {
+  background: #fafbfc;
+  border: 1.5px solid #ff3c6f;
+  color: #ff3c6f;
+  padding: 11px 0;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 2px;
+}
+
+.googleBtn:hover {
+  background: #ffe2ea;
+  /* color: #fff; */
+}
+
+.toggleLink {
+  margin-top: 22px;
+  font-size: 1rem;
+  color: #222;
+  text-align: center;
+}
+
+.toggleLink span {
+  color: #ff3c6f;
+  margin-left: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .authContainer {
+    padding: 24px 6px 18px 6px;
+    max-width: 98vw;
+  }
+  .authTitle {
+    font-size: 1.3rem;
+  }
+  .authSubtitle {
+    font-size: 1rem;
+  }
+}

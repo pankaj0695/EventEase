@@ -7,13 +7,13 @@ const Home = () => {
     <div className={styles.homeContainer}>
       <div className={styles.centerContent}>
         <h1 className={styles.title}>
-          <span className={styles.fadeIn}>EventEase</span>
+          <span className={styles.fadeIn}>EventEase by Pankaj</span>
         </h1>
         <p className={styles.description}>
           <span className={styles.slideIn}>
             Seamlessly discover and create events.
             <br />
-            Join the community, explore what’s happening, or host your own event
+            Join the community, explore what's happening, or host your own event
             with ease!
           </span>
         </p>

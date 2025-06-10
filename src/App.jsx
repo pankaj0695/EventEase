@@ -6,6 +6,7 @@ import AddEvent from "./pages/AddEvent/AddEvent";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Navbar from "./components/Navbar/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -15,7 +16,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
         <Route path="/events/:eventId" element={<EventDetail />} />
-        <Route path="/addevent" element={<AddEvent />} />
+        <Route
+          path="/addevent"
+          element={
+            <ProtectedRoute>
+              <AddEvent />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

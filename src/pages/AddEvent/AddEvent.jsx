@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { db } from "../../firebase/firebase";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import styles from "./AddEvent.module.css";
+
+const CLOUDINARY_UPLOAD_PRESET = "EventEase-Storage"; // TODO: Replace with your Cloudinary upload preset
+const CLOUDINARY_CLOUD_NAME = "dnihe4ihi"; // TODO: Replace with your Cloudinary cloud name
+const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
 
 const AddEvent = () => {
   const navigate = useNavigate();
@@ -108,18 +114,36 @@ const AddEvent = () => {
     setIsSubmitting(true);
 
     try {
-      // Here you would typically upload the image and event data to your backend
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // 1. Upload image to Cloudinary
+      let imageUrl = "";
+      if (imageFile) {
+        const formData = new FormData();
+        formData.append("file", imageFile);
+        formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+        const response = await fetch(CLOUDINARY_URL, {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        if (!data.secure_url) throw new Error("Image upload failed");
+        imageUrl = data.secure_url;
+      }
+
+      // 2. Save event data to Firestore
+      await addDoc(collection(db, "events"), {
+        ...formData,
+        imageUrl,
+        createdAt: Timestamp.now(),
+      });
 
       setSubmitSuccess(true);
-      // Redirect to events page after 2 seconds
       setTimeout(() => {
         navigate("/events");
       }, 2000);
     } catch (error) {
       setErrors((prev) => ({
         ...prev,
-        submit: "Failed to create event. Please try again.",
+        submit: error.message || "Failed to create event. Please try again.",
       }));
     } finally {
       setIsSubmitting(false);
